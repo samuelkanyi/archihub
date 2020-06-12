@@ -1,0 +1,324 @@
+@font-face{
+    font-family: "proxima-regular";
+    src: url(../fonts/proxima/ProximaNova-Regular.otf);
+}
+
+@font-face{
+  font-family: "gotham-regular";
+  src: url(../fonts/gotham/GothamMedium.ttf);
+}
+
+@font-face{
+  font-family: "gotham-bold";
+  src: url(../fonts/gotham/GothamBold.ttf);
+}
+
+@font-face{
+  font-family: "graphik";
+  src: url(../fonts/graphik/GraphikRegular.otf);
+}
+
+@font-face{
+  font-family: "Playfair Display";
+  src: url(../fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf);
+}
+
+$colors:(
+    primary:#6c7b95,
+    secondary:#BAC59E,
+    button:#8bbabb,
+    links:#c7f0db,
+    bg:#f4f4f4
+);
+
+//function for getting the color
+@function color($color) {
+    @return map-get($map: $colors, $key: $color);
+  }
+
+
+*{
+    box-sizing: border-box;
+    
+}
+.navbar{
+    position: fixed;
+    top: -100px;
+    transition: top 0.8s;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+}
+.navbar-brand{
+  color: black;
+  font-weight: bolder;
+  font-size: 1em;
+}
+
+.navbar-brand:hover{
+  color: black;
+  font-weight: bold;
+}
+.navbar-nav{
+  position: absolute;
+  right: 0;
+  margin-right: 10%;
+  justify-content: space-around;
+  width: 20%;
+}
+.nav-link{
+  // font-size: 22px;
+  color: black;
+  font-size:16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 0 2em;
+  max-width: 160px; 
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%; 
+}
+.nav-link:hover{
+  text-decoration: none;
+}
+
+.btn-2{
+  letter-spacing: 0px;
+}
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+  backface-visibility: hidden;
+  border-color: color(secondary);
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+
+body{
+    font-family: graphik;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background: color(bg);
+}
+
+.container-fluid{
+  padding: 0;
+
+}
+h1, h2, h3, h4 h5, h6{
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    img{
+      height: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fader {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+.category{
+  position: absolute;
+  height: 20px !important;
+  display: flex;
+  background-color: whitesmoke !important;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.category > div{
+  border: 1px solid #000000;
+  width: 100%;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 8px 16px 0 color(secondary);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 16px 32px 0 color(secondary);
+}
+
+.btn-project{
+  background-color: color(secondary);
+  color: white;
+  
+  
+}
+
+.curved{
+  border-radius: 0% 0 50% 50%/ 0% 0 70% 70% ;
+  height: 150px;
+  background-color: color(bg);
+}
+footer{
+  height: 500px;
+  background-color: color(secondary);
+}
+
+
+//admin page
+.section-container{
+  height: 500px;
+  overflow-y: scroll;
+
+  section:not(.active-section){
+    display: none !important;
+  }
+}
+
+.image{
+  position: relative;
+  border-radius: 20px;
+   box-shadow: 0 16px 32px 0 color(secondary);
+  transition: .7s ease-in-out;
+   img{
+    width: 350px;
+    height:350px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .btn-group{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
+.image:hover{
+  opacity: .6;
+  transform: scale(1.1);
+  .btn-group{
+    display: inline;
+  }
+}
+
+//modal 
+#modal-image{
+  width: 400px;
+  object-fit: cover;
+}
+

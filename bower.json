@@ -1,0 +1,25 @@
+{
+  "name": "archihub",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "amshel"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "nodejs",
+    "sequelize",
+    "construction"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}

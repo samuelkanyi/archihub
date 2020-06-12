@@ -1,0 +1,113 @@
+<h2 class="mt-5">ADMIN AREA</h2>
+<section id="control" class="container my-3 d-flex justify-content-around">
+    <button target="add-img" class="btn btn-primary btn-lg">Add New Images</button>
+    <button target="edit-img" class="btn btn-primary btn-lg">Edit Images</button>
+    <button target="company" class="btn btn-primary btn-lg">Company Description</button>
+    <button target="users" class="btn btn-primary btn-lg">User Management</button>
+</section>
+
+<div class="container section-container ">
+    <section id="add-img" class="active-section">ADDING Images</section>
+    <section id="edit-img" class="d-flex flex-row flex-wrap justify-content-around">
+        {{#each images}}
+        <div id="id-{{this.id}}" class="image  mt-5 ">
+            <div class="btn-group">
+                <button class="btn btn-lg btn-edit btn-warning">Edit</button>
+            </div>
+            <img src="../../images/{{this.name}}" id="id-{{this.id}}" />
+        </div>
+        {{/each}}
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">EDIT IMAGE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-around p-5">
+                        <img src="" alt="" id="modal-image" srcset="">
+                        <form action="/admin/images?_method=PUT" method="post">
+                            {{!-- <input type="hidden" name="_method" value="put"> --}}
+                            <input type="hidden" id="modal-id" name="id" >
+                            <div>
+                                {{!-- <p>Picture Id: <span id="modal-id"></span></p>
+                                <p>Picture Name: <span id="modal-name"></span></p> --}}
+                                <div class="form-group">
+                                    <label for="modal-caption">Caption:</label>
+                                    <input type="text" class="form-control" id="modal-caption" name="caption"
+                                        aria-describedby="caption" placeholder="Enter caption">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-category">SELECT THE CATEGORY</label>
+                                    <select class="form-control form-control-sm" name="category" id="modal-category">
+                                        <option>kitchen</option>
+                                        <option>toilet </option>
+                                        <option>stairs</option>
+                                    </select>
+                                </div>
+                                <div class="row d-sm-inline-flex justify-content-between w-100">
+                                    <input class="btn btn-success" type="submit" value="update">
+                                    <input class="btn btn-warning" type="reset" value="clear">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button class="btn btn-danger btn-lg btn-delete">Delete Image</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="company">Company Details</section>
+    <section id="users">User Management</section>
+
+</div>
+
+<script>
+
+    const Admin = (() => {
+
+        return {
+            start: () => {
+                //get all buttons
+                const controller = document.querySelector("#control");
+                const buttons = controller.querySelectorAll('button');
+                const sectionContainer = document.querySelector('.section-container');
+
+                buttons.forEach(button => button.addEventListener('click', () => {
+                    let target = button.getAttribute('target');
+                    switch (target) {
+                        case 'add-img':
+                            new AddImages();
+                            break;
+                        case 'edit-img':
+                            new EditImages();
+                            break;
+                        case 'company':
+                            new Company()
+                            break;
+                        case 'users':
+                            new Users()
+                            break;
+                        default:
+                            console.error("Some error")
+
+                    }
+                }))
+
+            }
+        }
+    })()
+
+    Admin.start()
+</script>
