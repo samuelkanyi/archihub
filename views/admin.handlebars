@@ -1,13 +1,83 @@
 <h2 class="mt-5">ADMIN AREA</h2>
 <section id="control" class="container my-3 d-flex justify-content-around">
-    <button target="add-img" class="btn btn-primary btn-lg">Add New Images</button>
+    <button target="add-finish" class="btn btn-primary btn-lg">Add New Finish</button>
+    <button target="add-project" class="btn btn-primary btn-lg">Add New Project</button>
     <button target="edit-img" class="btn btn-primary btn-lg">Edit Images</button>
     <button target="company" class="btn btn-primary btn-lg">Company Description</button>
     <button target="users" class="btn btn-primary btn-lg">User Management</button>
 </section>
 
 <div class="container section-container ">
-    <section id="add-img" class="active-section">ADDING Images</section>
+    <section id="add-finish" class="active-section d-flex justify-content-around p-5">
+
+        <div class="image"><img id="img-finish" src="" alt="" srcset=""></div>
+        <form method="post" action="/admin/images/finish" enctype="multipart/form-data" id="finish-form">
+            <label for="upload-image">Upload image</label>
+            <input type="file" name="avatar" id="upload-image" required />
+
+            <div class="form-group">
+                <label for="modal-caption">Caption:</label>
+                <input type="text" class="form-control" id="caption" name="caption" aria-describedby="caption"
+                    placeholder="Enter caption">
+            </div>
+            <div class="form-group">
+                <label for="modal-category">SELECT THE CATEGORY</label>
+                <select class="form-control form-control-sm" name="category" id="category">
+                    <option>kitchen</option>
+                    <option>toilet </option>
+                    <option>stairs</option>
+                </select>
+            </div>
+
+            <div class="row d-sm-inline-flex justify-content-md-around w-100">
+                <input class="btn btn-success" type="submit" value="update">
+                <input class="btn btn-warning" type="reset" value="clear">
+            </div>
+
+        </form>
+    </section>
+    <section id="add-project" class="d-flex justify-content-around p-5">
+        <form method="post" action="/admin/project" class="d-flex flex-column" enctype="multipart/form-data"
+            id="project-form">
+            <div class="d-flex flex-column" id="addInputParent">
+                <input type="file" name="avatar" id="upload-image" required />
+                <i class="fa fa-2x fa-plus" id="add-project-image"></i>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" aria-describedby="location"
+                    placeholder="Enter Location">
+            </div>
+            <div class="form-group">
+                <label for="location">Client:</label>
+                <input type="text" class="form-control" id="client" name="client" aria-describedby="client"
+                    placeholder="Enter Name of Client">
+            </div>
+            <div class="d-lg-flex justify-content-around p-3 ">
+                <div class="form-group d-sm-flex flex-column">
+                    <label for="location">Cost:(millions)</label>
+                    <input type="number" class="form-control-sm" id="cost" name="cost" aria-describedby="cost"
+                        placeholder="Enter cost">
+                </div>
+                <div class="form-group d-sm-flex flex-column">
+                    <label for="location">Duration:(Months)</label>
+                    <input type="number" class="form-control-sm" id="duration" name="duration"
+                        aria-describedby="duration" placeholder="Enter Project Duration">
+                </div>
+                <div class="form-group d-sm-flex flex-column">
+                    <label for="year">YEAR</label>
+                    <select class="form-control form-control-sm" name="year" id="year">
+
+                    </select>
+                </div>
+            </div>
+            <div class="row d-sm-inline-flex justify-content-md-around w-100">
+                <input class="btn btn-success" type="submit" value="update">
+                <input class="btn btn-warning" type="reset" value="clear">
+            </div>
+
+        </form>
+    </section>
     <section id="edit-img" class="d-flex flex-row flex-wrap justify-content-around">
         {{#each images}}
         <div id="id-{{this.id}}" class="image  mt-5 ">
@@ -34,7 +104,7 @@
                         <img src="" alt="" id="modal-image" srcset="">
                         <form action="/admin/images?_method=PUT" method="post">
                             {{!-- <input type="hidden" name="_method" value="put"> --}}
-                            <input type="hidden" id="modal-id" name="id" >
+                            <input type="hidden" id="modal-id" name="id">
                             <div>
                                 {{!-- <p>Picture Id: <span id="modal-id"></span></p>
                                 <p>Picture Name: <span id="modal-name"></span></p> --}}
@@ -68,8 +138,44 @@
         </div>
     </section>
 
-    <section id="company">Company Details</section>
-    <section id="users">User Management</section>
+    <section id="company">
+
+        {{#each company}}
+        <div class="jumbotron">
+            <h6 class="display-4 text-uppercase text-center">{{@key}}</h6>
+            <p class="lead text-center font-weight-bolder">{{this}}</p>
+            <form action="/admin/company?_method=PUT" method="POST" class="form mb-4">
+                <input type="hidden" id="company_key" name="id" value=1>
+                <div class="form-group">
+                    <textarea name="{{@key}}" id="" cols="130" rows="5">{{this}}</textarea>
+
+                </div>
+                <div class="d-inline-flex w-100 justify-content-center">
+                    <input type="submit" value="update" class="btn btn-success mx-2">
+                    <button class="btn btn-secondary cancel-form">cancel</button>
+                </div>
+            </form>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-outline-warning warning">EDIT</button>
+            </div>
+        </div>
+        {{/each}}
+
+    </section>
+    <section id="users">
+        {{#each users}}
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        {{/each}}
+
+    </section>
 
 </div>
 
@@ -83,12 +189,15 @@
                 const controller = document.querySelector("#control");
                 const buttons = controller.querySelectorAll('button');
                 const sectionContainer = document.querySelector('.section-container');
-
+                new AddFinish();
                 buttons.forEach(button => button.addEventListener('click', () => {
                     let target = button.getAttribute('target');
                     switch (target) {
-                        case 'add-img':
-                            new AddImages();
+                        case 'add-finish':
+                            new AddFinish();
+                            break;
+                        case 'add-project':
+                            new AddProject();
                             break;
                         case 'edit-img':
                             new EditImages();
