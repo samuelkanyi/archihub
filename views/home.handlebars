@@ -76,43 +76,21 @@
   <br>
   <section class="container">
     <div class="card-deck">
+      {{#each projects}}
       <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-            content.
-            This content is a little bit longer.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <h5 class="card-title">{{this.location}}</h5>
+          <p class="card-text"><strong>CLIENT:</strong> {{this.client}}</p>
+          <p class="card-text"><strong>COST:</strong> {{this.cost}}M</p>
+          <p class="card-text"><strong>DURATION:</strong> {{this.duration}}</p>
+          <p class="card-text"><strong>YEAR:</strong> {{this.year}}</p>
         </div>
       </div>
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-            content.
-            This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
+      {{/each}}
     </div>
 
-    <div class="d-flex justify-content-center"><a href="http://" class="btn btn-project mt-5">Show More Projects</a>
+    <div class="d-flex justify-content-center"><a href="/projects" class="btn btn-project mt-5">Show More Projects</a>
     </div>
   </section>
   <br>

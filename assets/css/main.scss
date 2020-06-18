@@ -321,4 +321,8 @@ footer{
   width: 400px;
   object-fit: cover;
 }
-
+.jumbotron{
+  form:not(.shown){
+    display: none;
+  }
+}
