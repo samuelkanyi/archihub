@@ -345,4 +345,8 @@ footer {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.jumbotron form:not(.shown) {
+  display: none;
+}
 /*# sourceMappingURL=main.css.map */
