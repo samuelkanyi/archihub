@@ -17,7 +17,8 @@ app.use(methodOverride('_method'))
 //set handlebars as the main view engine
 app.engine('handlebars', hbs({
     helpers:{
-        rootpath:ROOTPATH
+        rootpath:ROOTPATH,
+        escape: variable => variable.replace(/(['"])/g, '\\$1')
     }
 }));
 app.set('view engine', 'handlebars');
