@@ -80,7 +80,7 @@ class AddProject extends Section{
     loadElements(section){
         this.addInputBtn = section.querySelector("#add-project-image");
         this.selectYear = section.querySelector("#year")
-        this.section= section;
+        // this.section= section;
     }
 
     addListeners(){
@@ -88,9 +88,11 @@ class AddProject extends Section{
             const input = document.createElement('input');
             input.type= 'file'
             input.name = 'avatar'
-            this.section.querySelector("#addInputParent").insertBefore(input, this.addInputBtn)
+            // this.section.querySelector("#addInputParent").insertBefore(input, this.addInputBtn)
             e.preventDefault()
         })
+
+        
     }
 }
 class EditImages extends Section {
