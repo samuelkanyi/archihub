@@ -1,89 +1,226 @@
-@font-face{
-    font-family: "proxima-regular";
-    src: url(../fonts/proxima/ProximaNova-Regular.otf);
+//font face
+@font-face {
+  font-family: "proxima-regular";
+  src: url(../fonts/proxima/ProximaNova-Regular.otf);
 }
 
-@font-face{
+@font-face {
   font-family: "gotham-regular";
   src: url(../fonts/gotham/GothamMedium.ttf);
 }
 
-@font-face{
+@font-face {
   font-family: "gotham-bold";
   src: url(../fonts/gotham/GothamBold.ttf);
 }
 
-@font-face{
+@font-face {
   font-family: "graphik";
   src: url(../fonts/graphik/GraphikRegular.otf);
 }
 
-@font-face{
+@font-face {
   font-family: "Playfair Display";
   src: url(../fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf);
 }
 
-$colors:(
-    primary:#6c7b95,
-    secondary:#BAC59E,
-    button:#8bbabb,
-    links:#c7f0db,
-    bg:#f4f4f4
+@font-face {
+  font-family: "shadowfont";
+  src: url(../fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf);
+}
+//sass fuctions, arraya methods
+$colors: (
+  primary: #343434,
+  secondary: #ffffff,
+  accent: #c8102e,
+  // accent:#FFA726
 );
 
 //function for getting the color
 @function color($color) {
-    @return map-get($map: $colors, $key: $color);
+  @return map-get($map: $colors, $key: $color);
+}
+// root global css
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: graphik;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  background: color(secondary);
+  height: 100vh;
+}
+
+.container-fluid {
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4 h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+a {
+  transition: color 1s ease;
+}
+//all anchor tags
+a:hover {
+  color: color(accent);
+  text-decoration: none;
+  i {
+    color: color(accent);
+  }
+}
+
+//accent indiidual css
+.accent {
+  color: color(accent);
+}
+.accent-background {
+  background-color: color(accent);
+}
+
+// style all font awesome tags
+i {
+  color: color(secondary);
+  transition: color 1s ease;
+  margin-right: 10px;
+}
+i:hover {
+  color: color(accent);
+}
+
+//global spacing element. this comes as an additional css to already bootstrap styling
+.spacing {
+  margin: 5em 0;
+}
+
+//button styling
+.arch-btn {
+  cursor: pointer;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  color: color(accent);
+  background: color(secondary);
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  border: 1px solid color(accent);
+}
+
+.arch-btn:hover {
+  color: color(secondary);
+  background: color(accent);
+}
+
+/* Awesome hr */
+hr {
+  margin: 0 !important;
+}
+hr.awesome-hr {
+  overflow: visible; /* For IE */
+  height: 30px;
+  border-style: solid;
+  border-color: color(accent);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.awesome-hr:before {
+  /* Not really supposed to work, but does */
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: color(accent);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.vertical-hr {
+  height: inherit;
+  .hr-right {
+    border-style: solid;
+    width: 20px;
+    border-color: color(accent);
+    border-width: 0 0 0 1px;
+    border-radius: 20px;
+    height: 100%;
+  }
+  .hr-left {
+    border-style: solid;
+    width: 20px;
+    border-color: color(accent);
+    border-width: 0 1px 0 0;
+    border-radius: 20px;
+    height: 100%;
   }
 
+}
+//navbar styling
+.navbar {
+  position: fixed;
+  top: -100px;
+  transition: top 0.8s;
+  width: 100%;
+  background-color: color(secondary);
+  z-index: 2;
+  i{
+    color: color(primary)!important;
+  }
+}
 
-*{
-    box-sizing: border-box;
-    
-}
-.navbar{
-    position: fixed;
-    top: -100px;
-    transition: top 0.8s;
-    width: 100%;
-    background-color: white;
-    z-index: 2;
-}
-.navbar-brand{
-  color: black;
+.navbar-brand {
+  color: color(primary);
   font-weight: bolder;
   font-size: 1em;
+  text-decoration: underline;
+  text-decoration-color: color(accent);
 }
 
-.navbar-brand:hover{
-  color: black;
+.navbar-brand:hover {
+  color: color(primary);
   font-weight: bold;
 }
-.navbar-nav{
+.navbar-nav {
   position: absolute;
   right: 0;
   margin-right: 10%;
   justify-content: space-around;
   width: 20%;
 }
-.nav-link{
+
+.nav-link {
   // font-size: 22px;
-  color: black;
-  font-size:16px;
+  color: color(primary);
+  font-size: 16px;
   font-weight: 400;
   line-height: 45px;
   margin: 0 0 2em;
-  max-width: 160px; 
+  max-width: 160px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 100%; 
+  width: 100%;
 }
-.nav-link:hover{
+.nav-link:hover {
   text-decoration: none;
 }
 
-.btn-2{
+.btn-2 {
   letter-spacing: 0px;
 }
 .btn-2:hover,
@@ -94,9 +231,9 @@ $colors:(
 .btn-2:after,
 .btn-2:before {
   backface-visibility: hidden;
-  border: 1px solid rgba(#fff, 0);
+  border: 1px solid color(accent);
   bottom: 0px;
-  content: " ";
+  content: "";
   display: block;
   margin: 0 auto;
   position: relative;
@@ -107,7 +244,7 @@ $colors:(
 .btn-2:hover:after,
 .btn-2:hover:before {
   backface-visibility: hidden;
-  border-color: color(secondary);
+  border-color: color(accent);
   transition: width 350ms ease-in-out;
   width: 70%;
 }
@@ -118,135 +255,129 @@ $colors:(
   width: 70%;
 }
 
-body{
-    font-family: graphik;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    background: color(bg);
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
 }
 
-.container-fluid{
-  padding: 0;
-
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  img {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
 }
-h1, h2, h3, h4 h5, h6{
-  font-family: 'Playfair Display', serif;
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: color(secondary);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: color(primary);
+}
+
+/* Caption text */
+.text {
+  color: color(secondary);
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
   text-align: center;
 }
 
+/* Number text (1/3 etc) */
+.numbertext {
+  color: color(secondary);
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
 
-/* Slideshow container */
-.slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: color(accent);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: color(secondary);
+}
+
+/* Fading animation */
+.fader {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
   }
-  
-  /* Hide the images by default */
-  .mySlides {
-    display: none;
-    img{
-      height: 500px;
-      object-fit: cover;
-      object-position: center;
-    }
+  to {
+    opacity: 1;
   }
-  
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
   }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+  to {
+    opacity: 1;
   }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-  
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-  
-  /* Fading animation */
-  .fader {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-.category{
+}
+.category {
   position: absolute;
   height: 20px !important;
   display: flex;
-  background-color: whitesmoke !important;
+  background-color: color(secondary) !important;
   width: 100%;
   justify-content: space-evenly;
 }
 
-.category > div{
-  border: 1px solid #000000;
+.category > div {
+  border: 1px solid color(primary);
   width: 100%;
 }
 
+//project secion
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 8px 16px 0 color(secondary);
@@ -255,50 +386,88 @@ h1, h2, h3, h4 h5, h6{
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 16px 32px 0 color(secondary);
+  box-shadow: 0 16px 32px 0 color(primary);
 }
 
-.btn-project{
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.btn-project {
   background-color: color(secondary);
-  color: white;
-  
-  
+  color: color(accent);
 }
 
-.curved{
-  border-radius: 0% 0 50% 50%/ 0% 0 70% 70% ;
-  height: 150px;
-  background-color: color(bg);
-}
-footer{
-  height: 500px;
+//footer area
+.curved {
+  border-radius: 0% 0 50% 50%/ 0% 0 70% 70%;
+  height: 100px;
   background-color: color(secondary);
+  border-bottom: 10px solid color(accent);
 }
+footer {
+  color: color(secondary);
+  background-color: color(primary);
 
+  .footer-link {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: color(secondary);
+  }
+  .footer-link:hover {
+    color: color(accent);
+  }
+
+  .contact {
+    a {
+      font-size: 0.9em;
+    }
+  }
+  .footer-nav {
+    a {
+      font-size: 1.2em !important;
+    }
+  }
+
+  .webdev {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .dev {
+    font-family: shadowfont;
+    font-style: italic;
+  }
+  .background-image {
+  }
+}
 
 //admin page
-.section-container{
+.section-container {
   height: 500px;
   overflow-y: scroll;
 
-  section:not(.active-section){
+  section:not(.active-section) {
     display: none !important;
   }
 }
 
-.image{
+.image {
   position: relative;
   border-radius: 20px;
-   box-shadow: 0 16px 32px 0 color(secondary);
-  transition: .7s ease-in-out;
-   img{
+  box-shadow: 0 16px 32px 0 color(primary);
+  transition: 0.7s ease-in-out;
+  img {
     width: 350px;
-    height:350px;
+    height: 350px;
     object-fit: cover;
     border-radius: 20px;
   }
 
-  .btn-group{
+  .btn-group {
     display: none;
     position: absolute;
     top: 50%;
@@ -308,21 +477,21 @@ footer{
   }
 }
 
-.image:hover{
-  opacity: .6;
+.image:hover {
+  opacity: 0.6;
   transform: scale(1.1);
-  .btn-group{
+  .btn-group {
     display: inline;
   }
 }
 
-//modal 
-#modal-image{
+//modal
+#modal-image {
   width: 400px;
   object-fit: cover;
 }
-.jumbotron{
-  form:not(.shown){
+.jumbotron {
+  form:not(.shown) {
     display: none;
   }
 }
