@@ -8,7 +8,6 @@
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="navbar-nav mt-2">
       <a class="nav-link btn-2" href="">Projects</a>
       <a class="nav-link btn-2" href="">Gallery</a>
@@ -17,7 +16,8 @@
   </nav>
 
   <div class="banner d-flex justify-content-center align-items-center mt-3">
-    <h1 class="ml-5 text-uppercase">{{company.name}}</h1>
+    <h1 class="ml-5 text-uppercase ">{{company.name}}</h1>
+    <span class="cool-hr"></span>
   </div>
 
 
@@ -35,52 +35,49 @@
 
 
   </div>
-  <div class="category">
-    {{#each categories}}
-    <div class="text-center">{{this}}</div>
-    {{/each}}
-  </div>
-  <!-- The dots/circles -->
-  <div class="mt-5" style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
-  <section class="container mt-5 scroll-section">
-    <h3>Mission</h3>
+
+  <div class="spacing"></div>
+
+  <section class="container my-5 scroll-section" data-aos="fade-up">
+    <h2 class="display-4 mb-4"><span class="accent">M</span>ission</h2>
     <article class="text-center">
       {{company.mission}}
     </article>
-    <br>
-    <hr>
-    <br>
+    <hr class="awesome-hr my-5">
 
   </section>
-
-  <div class="content d-flex justify-content-around mx-5">
-    <div class="mission">
-      <h3>Objective</h3>
+  <div class="spacing"></div>
+  <div class="content d-flex justify-content-around my-5 mx-5">
+    <div class="mission" data-aos="fade-right">
+      <h3><span class="accent">O</span>bjective</h3>
       <article class="text-center">{{company.objective}}</article>
     </div>
-    <div class="vision">
-      <h3>vision</h3>
+    <div class="vertical-hr d-flex justify-content-center" data-aos="fade-up">
+      <div class="hr-left"></div>
+      <div class="hr-right"></div>
+    </div>
+    <div class="vision" data-aos="fade-left">
+      <h3><span class="accent">V</span>ision</h3>
       <article class="text-center">{{company.vision}}</article>
     </div>
   </div>
 
-  <br>
-  <hr>
-  <br>
+  <div class="container">
+    <hr class="awesome-hr my-5" data-aos="fade-left">
+  </div>
 
-  <h2>Projects</h2>
-  <br>
-  <section class="container">
-    <div class="card-deck">
+  <section class="container-fluid px-3 my-5" data-aos="fade-up">
+    <h2 class="mb-3">PROJECTS</h2>
+    <div class="card-deck my-5">
+
       {{#each projects}}
+
       <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+        {{#each this.images}}
+        <img src="/images/{{this.name}}" class="card-img-top" alt="...">
+        {{/each}}
         <div class="card-body">
-          <h5 class="card-title">{{this.location}}</h5>
+          <h5 class="card-title font-weight-bolder text-center">{{this.location}}</h5>
           <p class="card-text"><strong>CLIENT:</strong> {{this.client}}</p>
           <p class="card-text"><strong>COST:</strong> {{this.cost}}M</p>
           <p class="card-text"><strong>DURATION:</strong> {{this.duration}}</p>
@@ -90,16 +87,50 @@
       {{/each}}
     </div>
 
-    <div class="d-flex justify-content-center"><a href="/projects" class="btn btn-project mt-5">Show More Projects</a>
-    </div>
-  </section>
-  <br>
-  <br>
-  <footer>
-    <div class="curved">
-      <marquee behavior="" direction="">Awesome company Dedicated service</marquee>
+    <div class="d-flex justify-content-center"><a href="/projects" class="btn btn-lg arch-btn">Show More Projects</a>
     </div>
 
+  </section>
+
+  <footer class="mt-5">
+    <div class="curved">
+
+    </div>
+    <div class="container my-5 d-flex justify-content-between">
+      <div class="footer-heading d-flex flex-column">
+        <h1> {{company.name}}</h1>
+        <hr class="bg-light w-100">
+        <p class="lead"> {{company.tagline}}</p>
+      </div>
+      <div class="d-flex flex-column  ">
+        <div class="social">
+          <i class="fab mx-2 fa-facebook fa-2x"></i>
+          <i class="fab mx-2 fa-instagram fa-2x"></i>
+          <i class="fab mx-2 fa-twitter fa-2x"></i>
+        </div>
+        <div class="contact d-flex flex-column mt-3">
+          <a href="http://" class="footer-link"><i class="fas fa-phone"></i>0713 810 398</a>
+          <a href="http://" class="footer-link"><i class="fas fa-phone"></i>0700 233 525</a>
+          <a href="http://" class="footer-link"><i class="fas fa-envelope-square"></i>archihubconstruction@yahoo.com</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="container my-5 d-flex flex-column justify-content-around">
+      <div class="d-flex justify-content-around footer-nav">
+        <a class="footer-link" href="http://">Contact</a>
+        <a class="footer-link" href="http://">Projects</a>
+        <a class="footer-link" href="http://">Gallery</a>
+      </div>
+    </div>
+    <div class="container">
+      <hr class="awesome-hr">
+    </div>
+
+    <div class="webdev">
+      <p class="mr-2">Copyright <span>2020</span></p>
+      <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" target="_blank">amshel</a></p>
+    </div>
   </footer>
 </div>
 <script>
@@ -120,38 +151,13 @@
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
   }
-
-  const category = document.querySelector('.category');
-  const divs = category.querySelectorAll("div");
-  const allSilders = document.querySelectorAll('.mySlides')
-  divs.forEach(div => {
-    div.addEventListener('click', (e) => {
-      let type = div.innerText;
-      let newSlider = []
-      allSilders.forEach(slider => {
-        if (slider.getAttribute('type') == type) {
-          newSlider.push(slider);
-        }
-      });
-      allSilders.forEach(slider => slider.remove());
-      let cont = document.querySelector('.slideshow-container')
-      newSlider.forEach(slider => cont.insertBefore(slider, cont.childNodes[0]));
-      newSlider[0].style.display = "block";
-    });
-  })
-
   //code for scrolling 
   //get the container section and get the the y-offset 
   const currentOffset = window.pageYOffset;
