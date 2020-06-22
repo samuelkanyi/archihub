@@ -33,7 +33,9 @@ $colors: (
   primary: #343434,
   secondary: #ffffff,
   accent: #c8102e,
-  // accent:#FFA726
+  // accent:#FFA726 ,
+  // accent:#4A148C,
+  // accent:#4CAF50
 );
 
 //function for getting the color
@@ -467,8 +469,7 @@ footer {
     font-family: shadowfont;
     font-style: italic;
   }
-  .background-image {
-  }
+
 }
 
 //admin page

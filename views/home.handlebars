@@ -56,8 +56,10 @@
     </div>
 
     <!-- Next and previous buttons -->
+    <!--
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    -->
   </div>
 
   <div class="spacing"></div>
@@ -97,7 +99,7 @@
       {{#each projects}}
 
       <div class="card">
-        
+
         <img src="/images/{{this.image}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title font-weight-bolder text-center">{{this.location}}</h5>
@@ -152,7 +154,8 @@
 
     <div class="webdev">
       <p class="mr-2">Copyright <span>2020</span></p>
-      <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" class="footer-link" target="_blank">amshel</a></p>
+      <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" class="footer-link" target="_blank">amshel</a>
+      </p>
     </div>
   </footer>
 </div>
@@ -174,12 +177,15 @@
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
+    //if (n > slides.length) { slideIndex = 1 }
+    //if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2000);
   }
   //code for scrolling 
   //get the container section and get the the y-offset 
