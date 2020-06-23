@@ -1,164 +1,159 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <i class="far fa-building fa-5x"></i>
-    <a class="navbar-brand" href="#">
-      Archihub <br>Construction <br>Company
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-nav mt-2">
-      <a class="nav-link btn-2" href="">Projects</a>
-      <a class="nav-link btn-2" href="">Gallery</a>
-      <a class="nav-link btn-2" href="">Contact</a>
-    </div>
-  </nav>
+<nav class="navbar hidden navbar-expand-lg fixed-top">
+  <i class="far fa-building fa-5x"></i>
+  <a class="navbar-brand" href="#">
+    Archihub <br>Construction <br>Company
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-nav mt-2">
+    <a class="nav-link btn-2" href="/projects">Projects</a>
+    <a class="nav-link btn-2" href="/gallery">Gallery</a>
+    <a class="nav-link btn-2" href="/contact">Contact</a>
+  </div>
+</nav>
 
-  <div class="banner d-flex justify-content-center align-items-center mt-3">
-    <h1 class="ml-5 text-uppercase ">{{company.name}}</h1>
-    <span class="cool-hr"></span>
+<div class="banner d-flex justify-content-center align-items-center mt-3">
+  <h1 class="ml-5 text-uppercase ">{{company.name}}</h1>
+  <span class="cool-hr"></span>
+</div>
+<div class="slideshow-container">
+  <div class="mySlides fader">
+    <div class="sect d-flex ">
+      <img class="flex-xl-grow-1" src="/images/6.jpg" alt="">
+      <img src="/images/7.jpg" alt="">
+      <img src="/images/14.jpg" alt="">
+    </div>
+    <div class="text">Lighting Finishes</div>
+  </div>
+  <div class="mySlides fader">
+    <div class="sect d-flex ">
+      <img class="flex-xl-grow-1" src="/images/21.jpg" alt="">
+      <img src="/images/27.jpg" alt="">
+      <img src="/images/67.jpg" alt="">
+    </div>
+    <div class="text">Toilet Finishes</div>
+  </div>
+  <div class="mySlides fader">
+    <div class="sect d-flex ">
+      <img class="flex-xl-grow-1" src="/images/59.jpg" alt="">
+      <img src="/images/62.jpg" alt="">
+      <img src="/images/64.jpg" alt="">
+    </div>
+    <div class="text">Lighting finishes</div>
+  </div>
+  <div class="mySlides fader">
+    <div class="sect d-flex ">
+      <img class="flex-xl-grow-1" src="/images/36.jpg" alt="">
+      <img src="/images/68.jpg" alt="">
+      <img src="/images/81.jpg" alt="">
+    </div>
+    <div class="text">Wardrobe finishes</div>
   </div>
 
-
-  <div class="slideshow-container">
-    <div class="mySlides fader">
-      <div class="sect d-flex ">
-        <img class="flex-xl-grow-1" src="/images/6.jpg" alt="">
-        <img src="/images/7.jpg" alt="">
-        <img src="/images/14.jpg" alt="">
-      </div>
-      <div class="text">Lighting Finishes</div>
-    </div>
-    <div class="mySlides fader">
-      <div class="sect d-flex ">
-        <img class="flex-xl-grow-1" src="/images/21.jpg" alt="">
-        <img src="/images/27.jpg" alt="">
-        <img src="/images/67.jpg" alt="">
-      </div>
-      <div class="text">Toilet Finishes</div>
-    </div>
-    <div class="mySlides fader">
-      <div class="sect d-flex ">
-        <img class="flex-xl-grow-1" src="/images/59.jpg" alt="">
-        <img src="/images/62.jpg" alt="">
-        <img src="/images/64.jpg" alt="">
-      </div>
-      <div class="text">Lighting finishes</div>
-    </div>
-    <div class="mySlides fader">
-      <div class="sect d-flex ">
-        <img class="flex-xl-grow-1" src="/images/36.jpg" alt="">
-        <img src="/images/68.jpg" alt="">
-        <img src="/images/81.jpg" alt="">
-      </div>
-      <div class="text">Wardrobe finishes</div>
-    </div>
-
-    <!-- Next and previous buttons -->
-    <!--
+  <!-- Next and previous buttons -->
+  <!--
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
     -->
-  </div>
-
-  <div class="spacing"></div>
-
-  <section class="container my-5 scroll-section" data-aos="fade-up">
-    <h2 class="display-4 mb-4"><span class="accent">M</span>ission</h2>
-    <article class="text-center">
-      {{company.mission}}
-    </article>
-    <hr class="awesome-hr my-5">
-
-  </section>
-  <div class="spacing"></div>
-  <div class="content d-flex justify-content-around my-5 mx-5">
-    <div class="mission" data-aos="fade-right">
-      <h3><span class="accent">O</span>bjective</h3>
-      <article class="text-center">{{company.objective}}</article>
-    </div>
-    <div class="vertical-hr d-flex justify-content-center" data-aos="fade-up">
-      <div class="hr-left"></div>
-      <div class="hr-right"></div>
-    </div>
-    <div class="vision" data-aos="fade-left">
-      <h3><span class="accent">V</span>ision</h3>
-      <article class="text-center">{{company.vision}}</article>
-    </div>
-  </div>
-
-  <div class="container">
-    <hr class="awesome-hr my-5" data-aos="fade-left">
-  </div>
-
-  <section class="container-fluid px-3 my-5" data-aos="fade-up">
-    <h2 class="mb-3">RECENT PROJECTS</h2>
-    <div class="card-deck my-5">
-
-      {{#each projects}}
-
-      <div class="card">
-
-        <img src="/images/{{this.image}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title font-weight-bolder text-center">{{this.location}}</h5>
-          <p class="card-text"><strong>CLIENT:</strong> {{this.client}}</p>
-          <p class="card-text"><strong>COST:</strong> {{this.cost}}M</p>
-          <p class="card-text"><strong>DURATION:</strong> {{this.duration}}</p>
-          <p class="card-text"><strong>YEAR:</strong> {{this.year}}</p>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-
-    <div class="d-flex justify-content-center"><a href="#" class="btn btn-lg arch-btn">Show More Projects</a>
-    </div>
-
-  </section>
-
-  <footer class="mt-5">
-    <div class="curved">
-
-    </div>
-    <div class="container my-5 d-flex justify-content-between">
-      <div class="footer-heading d-flex flex-column">
-        <h1> {{company.name}}</h1>
-        <hr class="bg-light w-100">
-        <p class="lead"> {{company.tagline}}</p>
-      </div>
-      <div class="d-flex flex-column  ">
-        <div class="social">
-          <i class="fab mx-2 fa-facebook fa-2x"></i>
-          <i class="fab mx-2 fa-instagram fa-2x"></i>
-          <i class="fab mx-2 fa-twitter fa-2x"></i>
-        </div>
-        <div class="contact d-flex flex-column mt-3 align-items-start">
-          <a href="#" class="footer-link"><i class="fas fa-phone"></i>0713 810 398</a>
-          <a href="#" class="footer-link"><i class="fas fa-phone"></i>0700 233 525</a>
-          <a href="#" class="footer-link"><i class="fas fa-envelope-square"></i>archihubconstruction@yahoo.com</a>
-        </div>
-
-      </div>
-    </div>
-    <div class="container my-5 d-flex flex-column justify-content-around">
-      <div class="d-flex justify-content-around footer-nav">
-        <a class="footer-link" href="#">Contact</a>
-        <a class="footer-link" href="#">Projects</a>
-        <a class="footer-link" href="#">Gallery</a>
-      </div>
-    </div>
-    <div class="container">
-      <hr class="awesome-hr">
-    </div>
-
-    <div class="webdev">
-      <p class="mr-2">Copyright <span>2020</span></p>
-      <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" class="footer-link" target="_blank">amshel</a>
-      </p>
-    </div>
-  </footer>
 </div>
+
+<div class="spacing"></div>
+
+<section class="container my-5 scroll-section" data-aos="fade-up">
+  <h2 class="display-4 mb-4"><span class="accent">M</span>ission</h2>
+  <article class="text-center">
+    {{company.mission}}
+  </article>
+  <hr class="awesome-hr my-5">
+
+</section>
+<div class="spacing"></div>
+<div class="content d-flex justify-content-around my-5 mx-5">
+  <div class="mission" data-aos="fade-right">
+    <h3><span class="accent">O</span>bjective</h3>
+    <article class="text-center">{{company.objective}}</article>
+  </div>
+  <div class="vertical-hr d-flex justify-content-center" data-aos="fade-up">
+    <div class="hr-left"></div>
+    <div class="hr-right"></div>
+  </div>
+  <div class="vision" data-aos="fade-left">
+    <h3><span class="accent">V</span>ision</h3>
+    <article class="text-center">{{company.vision}}</article>
+  </div>
+</div>
+
+<div class="container">
+  <hr class="awesome-hr my-5" data-aos="fade-left">
+</div>
+
+<section class="container-fluid px-3 my-5" data-aos="fade-up">
+  <h2 class="mb-3">RECENT PROJECTS</h2>
+  <div class="card-deck my-5">
+
+    {{#each projects}}
+
+    <div class="card">
+
+      <img src="/images/{{this.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bolder text-center">{{this.location}}</h5>
+        <p class="card-text"><strong>CLIENT:</strong> {{this.client}}</p>
+        <p class="card-text"><strong>COST:</strong> {{this.cost}}M</p>
+        <p class="card-text"><strong>DURATION:</strong> {{this.duration}}</p>
+        <p class="card-text"><strong>YEAR:</strong> {{this.year}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="d-flex justify-content-center"><a href="/projects" class="btn btn-lg arch-btn">Show More Projects</a>
+  </div>
+
+</section>
+<footer class="mt-5">
+  <div class="curved">
+
+  </div>
+  <div class="container my-5 d-flex justify-content-between">
+    <div class="footer-heading d-flex flex-column">
+      <h1> {{company.name}}</h1>
+      <hr class="bg-light w-100">
+      <p class="lead"> {{company.tagline}}</p>
+    </div>
+    <div class="d-flex flex-column  ">
+      <div class="social">
+        <i class="fab mx-2 fa-facebook fa-2x"></i>
+        <i class="fab mx-2 fa-instagram fa-2x"></i>
+        <i class="fab mx-2 fa-twitter fa-2x"></i>
+      </div>
+      <div class="contact d-flex flex-column mt-3 align-items-start">
+        <a href="#" class="footer-link"><i class="fas fa-phone"></i>0713 810 398</a>
+        <a href="#" class="footer-link"><i class="fas fa-phone"></i>0700 233 525</a>
+        <a href="#" class="footer-link"><i class="fas fa-envelope-square"></i>archihubconstruction@yahoo.com</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="container my-5 d-flex flex-column justify-content-around">
+    <div class="d-flex justify-content-around footer-nav">
+      <a class="footer-link" href="/contact">Contact</a>
+      <a class="footer-link" href="/projects">Projects</a>
+      <a class="footer-link" href="#">Gallery</a>
+    </div>
+  </div>
+  <div class="container">
+    <hr class="awesome-hr">
+  </div>
+
+  <div class="webdev">
+    <p class="mr-2">Copyright <span>2020</span></p>
+    <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" class="footer-link" target="_blank">amshel</a>
+    </p>
+  </div>
+</footer>
 <script>
 
   var slideIndex = 1;
