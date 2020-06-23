@@ -1,6 +1,6 @@
 const express = require('express');
 const hbs = require('express-handlebars');
-const {PORT, SECRET, ROOTPATH} = require('./lib/config/config');
+const {PORT, SECRET, URL, ROOTPATH} = require('./lib/config/config');
 const path = require('path')
 const session = require('express-session')
 const passport = require('passport');
@@ -17,7 +17,7 @@ app.use(methodOverride('_method'))
 //set handlebars as the main view engine
 app.engine('handlebars', hbs({
     helpers:{
-        rootpath:ROOTPATH,
+        url:URL,
         escape: variable => variable.replace(/(['"])/g, '\\$1')
     }
 }));
