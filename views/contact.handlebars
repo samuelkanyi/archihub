@@ -1,0 +1,71 @@
+<div class="banner d-flex justify-content-center align-items-center mt-3">
+    {{log rootpath}}
+    <h1 class="ml-5 text-uppercase ">{{company.name}}</h1>
+    <span class="cool-hr"></span>
+</div>
+
+<section class="container-fluid d-flex py-5">
+    <div class="mapview">
+        {{!-- small map --}}
+        {{!-- <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510515.6962559583!2d36.403810771012004!3d-1.5256913336695146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0122aa58a15b%3A0xd97892062d3b74c3!2sARCHIHUB%20CONSTRUCTION%20COMPANY!5e0!3m2!1sen!2ske!4v1592831639348!5m2!1sen!2ske"
+                width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe> --}}
+        {{!-- medium map --}}
+        {{!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d255268.39522716092!2d36.40037757246095!3d-1.4340547092668106!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0122aa58a15b%3A0xd97892062d3b74c3!2sARCHIHUB%20CONSTRUCTION%20COMPANY!5e0!3m2!1sen!2ske!4v1592833233315!5m2!1sen!2ske"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe> --}}
+        {{!-- large map --}}
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d255268.39522716092!2d36.40037757246095!3d-1.4340547092668106!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0122aa58a15b%3A0xd97892062d3b74c3!2sARCHIHUB%20CONSTRUCTION%20COMPANY!5e0!3m2!1sen!2ske!4v1592833233315!5m2!1sen!2ske"
+            width="1000" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+    <div class="card flex-fill">
+        <div class="card-body d-flex flex-column align-items-center primary-light">
+            <div class="card-title footer-link">Contacts</div>
+            <card-text><i class="fas fa-phone"></i>0713 810 398</card-text>
+            <card-text><i class="fas fa-phone"></i>0700 233 525</card-text>
+            <card-text><i class="fas fa-envelope-square"></i>archihubconstruction@yahoo.com</card-text>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactForm">
+                SEND EMAIL
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="contactForm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Contact Us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="full name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

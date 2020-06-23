@@ -1,0 +1,366 @@
+<nav class="navbar navbar-expand-lg mb-5">
+    <i class="far fa-building fa-5x"></i>
+    <a class="navbar-brand" href="#">
+        Archihub <br>Construction <br>Company
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav mt-2">
+        <a class="nav-link btn-2" href="/projects">Projects</a>
+        <a class="nav-link btn-2" href="/gallery">Gallery</a>
+        <a class="nav-link btn-2" href="/contact">Contact</a>
+    </div>
+</nav>
+<div class="spacing"></div>
+<hr class="cool-hr" data-symbol="FULL PROJECTS">
+<div class="container-fluid carousel mt-5">
+    <div class="reel">
+        {{#each projects}}
+        <div class="card p-3 projects" style="width: 18rem;" id="project-{{this.id}}">
+            <img src="images/{{this.image}}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title text-center text-uppercase font-weight-bolder h5">{{this.location}}</h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div class="spacing"></div>
+{{#each finishes}}
+<hr class="cool-hr" data-symbol="{{@key}}">
+
+<div class="jumbotron">
+    <div class="container-fluid carousel">
+        <div class="reel">
+            {{#each this as |category|}}
+            <a href="images/{{category.name}}" data-title="{{category.caption}}" data-lightbox="{{@../key}}"><img
+                    src="images/{{category.name}}" alt=""></a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/each}}
+
+
+<footer class="mt-5">
+    <div class="curved">
+
+    </div>
+    <div class="container my-5 d-flex justify-content-between">
+        <div class="footer-heading d-flex flex-column">
+            <h1> {{company.name}}</h1>
+            <hr class="bg-light w-100">
+            <p class="lead"> {{company.tagline}}</p>
+        </div>
+        <div class="d-flex flex-column  ">
+            <div class="social">
+                <i class="fab mx-2 fa-facebook fa-2x"></i>
+                <i class="fab mx-2 fa-instagram fa-2x"></i>
+                <i class="fab mx-2 fa-twitter fa-2x"></i>
+            </div>
+            <div class="contact d-flex flex-column mt-3 align-items-start">
+                <a href="#" class="footer-link"><i class="fas fa-phone"></i>0713 810 398</a>
+                <a href="#" class="footer-link"><i class="fas fa-phone"></i>0700 233 525</a>
+                <a href="#" class="footer-link"><i class="fas fa-envelope-square"></i>archihubconstruction@yahoo.com</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container my-5 d-flex flex-column justify-content-around">
+        <div class="d-flex justify-content-around footer-nav">
+            <a class="footer-link" href="/contact">Contact</a>
+            <a class="footer-link" href="/projects">Projects</a>
+            <a class="footer-link" href="#">Gallery</a>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="awesome-hr">
+    </div>
+
+    <div class="webdev">
+        <p class="mr-2">Copyright <span>2020</span></p>
+        <p class="dev">design: <a href="http://portfolio.mutalldevs.co.ke" class="footer-link"
+                target="_blank">amshel</a>
+        </p>
+    </div>
+</footer>
+
+
+
+ <!-- Modal -->
+        <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">PROJECTS</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-around p-5">
+                        <img src="" alt="" id="modal-image" srcset="">
+                        <div class="content">
+                            <p>Location: <span class="lead" id="modal-location"></span></p>
+                            <p>Client: <span class="lead" id="modal-client"></span></p>
+                            <p>Cost: <span class="lead" id="modal-cost"></span></p>
+                            <p>Duration: <span class="lead" id="modal-duration"></span></p>
+                            <p>Year: <span class="lead" id="modal-year"></span></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<script src="../js/browser.min.js"></script>
+<script src="../js/jquery.dropotron.min.js"></script>
+<script src="../js/jquery.scrollex.min.js"></script>
+<script src="../js/jquery.scrolly.min.js"></script>
+<script src="../js/breakpoints.min.js"></script>
+<script src="../js/util.js"></script>
+<script src="../components/lightbox2/dist/js/lightbox.min.js"></script>
+
+<script>
+
+
+    (function ($) {
+
+        var $window = $(window),
+            $body = $('body'),
+            settings = {
+
+                // Carousels
+                carousels: {
+                    speed: 4,
+                    fadeIn: true,
+                    fadeDelay: 250
+                },
+
+            };
+
+        // Breakpoints.
+        breakpoints({
+            wide: ['1281px', '1680px'],
+            normal: ['961px', '1280px'],
+            narrow: ['841px', '960px'],
+            narrower: ['737px', '840px'],
+            mobile: [null, '736px']
+        });
+
+        // Play initial animations on page load.
+        $window.on('load', function () {
+            window.setTimeout(function () {
+                $body.removeClass('is-preload');
+            }, 100);
+        });
+
+        // Dropdowns.
+        $('#nav > ul').dropotron({
+            mode: 'fade',
+            speed: 350,
+            noOpenerFade: true,
+            alignment: 'center'
+        });
+
+        // Scrolly.
+        $('.scrolly').scrolly();
+
+        // Nav.
+
+        // Button.
+        $(
+            '<div id="navButton">' +
+            '<a href="#navPanel" class="toggle"></a>' +
+            '</div>'
+        )
+            .appendTo($body);
+
+        // Panel.
+        $(
+            '<div id="navPanel">' +
+            '<nav>' +
+            $('#nav').navList() +
+            '</nav>' +
+            '</div>'
+        )
+            .appendTo($body)
+            .panel({
+                delay: 500,
+                hideOnClick: true,
+                hideOnSwipe: true,
+                resetScroll: true,
+                resetForms: true,
+                target: $body,
+                visibleClass: 'navPanel-visible'
+            });
+
+        // Carousels.
+        $('.carousel').each(function () {
+
+            var $t = $(this),
+                $forward = $('<span class="forward"></span>'),
+                $backward = $('<span class="backward"></span>'),
+                $reel = $t.children('.reel'),
+                $items = $reel.children('article');
+
+            var pos = 0,
+                leftLimit,
+                rightLimit,
+                itemWidth,
+                reelWidth,
+                timerId;
+
+            // Items.
+            if (settings.carousels.fadeIn) {
+
+                $items.addClass('loading');
+
+                $t.scrollex({
+                    mode: 'middle',
+                    top: '-20vh',
+                    bottom: '-20vh',
+                    enter: function () {
+
+                        var timerId,
+                            limit = $items.length - Math.ceil($window.width() / itemWidth);
+
+                        timerId = window.setInterval(function () {
+                            var x = $items.filter('.loading'),
+                                xf = x.first();
+
+                            if (x.length <= limit) {
+
+                                window.clearInterval(timerId);
+                                $items.removeClass('loading');
+                                return;
+
+                            }
+
+                            xf.removeClass('loading');
+
+                        }, settings.carousels.fadeDelay);
+
+                    }
+                });
+
+            }
+
+            // Main.
+            $t._update = function () {
+                pos = 0;
+                rightLimit = (-1 * reelWidth) + $window.width();
+                leftLimit = 0;
+                $t._updatePos();
+            };
+
+            $t._updatePos = function () {
+                $reel.css('transform', 'translate(' + pos + 'px, 0)');
+            };
+
+            // Forward.
+            $forward
+                .appendTo($t)
+                .hide()
+                .mouseenter(function (e) {
+                    timerId = window.setInterval(function () {
+                        pos -= settings.carousels.speed;
+
+                        if (pos <= rightLimit) {
+                            window.clearInterval(timerId);
+                            pos = rightLimit;
+                        }
+
+                        $t._updatePos();
+                    }, 10);
+                })
+                .mouseleave(function (e) {
+                    window.clearInterval(timerId);
+                });
+
+            // Backward.
+            $backward
+                .appendTo($t)
+                .hide()
+                .mouseenter(function (e) {
+                    timerId = window.setInterval(function () {
+                        pos += settings.carousels.speed;
+
+                        if (pos >= leftLimit) {
+
+                            window.clearInterval(timerId);
+                            pos = leftLimit;
+
+                        }
+
+                        $t._updatePos();
+                    }, 10);
+                })
+                .mouseleave(function (e) {
+                    window.clearInterval(timerId);
+                });
+
+            // Init.
+            $window.on('load', function () {
+
+                reelWidth = $reel[0].scrollWidth;
+
+                if (browser.mobile) {
+
+                    $reel
+                        .css('overflow-y', 'hidden')
+                        .css('overflow-x', 'scroll')
+                        .scrollLeft(0);
+                    $forward.hide();
+                    $backward.hide();
+
+                } else {
+
+                    $reel
+                        .css('overflow', 'visible')
+                        .scrollLeft(0);
+                    $forward.show();
+                    $backward.show();
+
+                }
+
+                $t._update();
+
+                $window.on('resize', function () {
+                    reelWidth = $reel[0].scrollWidth;
+                    $t._update();
+                }).trigger('resize');
+
+            });
+
+        });
+
+    })(jQuery);
+
+
+
+    const projectCards = document.querySelectorAll('.projects');
+    projectCards.forEach(card => {
+        let id = card.getAttribute('id');
+        card.addEventListener('click', async () => {
+            const response = await fetch(`${document.location.origin}/get/projects/${id.split('-')[1]}`)
+            setModalproperties(await response.json());
+            //console.log(await json.response)
+        })
+    })
+
+    const setModalproperties = (obj)=>{
+        document.querySelector('#modal-location').innerText = obj.location
+        document.querySelector('#modal-client').innerText = obj.client
+        document.querySelector('#modal-cost').innerText = `${obj.cost} million`
+        document.querySelector('#modal-duration').innerText = obj.duration
+        document.querySelector('#modal-year').innerText = obj.year
+        document.querySelector('#modal-image').src = `images/${obj.image}`
+        document.querySelector('#modal-image').height = 300
+
+        $('#projectModal').modal()
+    }
+
+</script>

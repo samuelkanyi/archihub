@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg mb-5">
+    <i class="far fa-building fa-5x"></i>
+    <a class="navbar-brand" href="#">
+        Archihub <br>Construction <br>Company
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav mt-2">
+        <a class="nav-link btn-2" href="/projects">Projects</a>
+        <a class="nav-link btn-2" href="/gallery">Gallery</a>
+        <a class="nav-link btn-2" href="/contact">Contact</a>
+    </div>
+</nav>
+<div class="spacing"></div>
+<h5 class="text-center">GALLERY</h5>
+<hr class="awesome-hr">
+<div class="container-fluid">
+
+    {{  log images}}
+    <div id="nanogallery2" data-nanogallery2='{
+                        "thumbnailHeight":  "200",
+                        "thumbnailWidth":   "300"
+                      }'>
+
+        {{#each images}}
+
+        <a href="images/{{this.name}}" data-ngThumb="images/{{this.name}}">
+            {{this.caption}} </a>
+        {{/each}}
+    </div>
+</div>
+
+ <script type="text/javascript" src="https://unpkg.com/nanogallery2@2.4.2/dist/jquery.nanogallery2.min.js"></script>
+
