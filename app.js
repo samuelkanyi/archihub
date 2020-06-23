@@ -5,7 +5,6 @@ const path = require('path')
 const session = require('express-session')
 const passport = require('passport');
 const strategy = require('./lib/config/passport')
-const debug = require('debug')
 require('./lib/database');
 var methodOverride = require('method-override')
 
