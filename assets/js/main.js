@@ -18,7 +18,6 @@ class UserException {
             dangerMode: true,
         })
     }
-
 }
 
 class Section {
@@ -73,26 +72,26 @@ class AddFinish extends Section {
     }
 }
 
-class AddProject extends Section{
-    constructor(){
+class AddProject extends Section {
+    constructor() {
         super("add-project")
     }
-    loadElements(section){
+    loadElements(section) {
         this.addInputBtn = section.querySelector("#add-project-image");
         this.selectYear = section.querySelector("#year")
         // this.section= section;
     }
 
-    addListeners(){
-        this.addInputBtn.addEventListener('click', (e)=>{
+    addListeners() {
+        this.addInputBtn.addEventListener('click', (e) => {
             const input = document.createElement('input');
-            input.type= 'file'
+            input.type = 'file'
             input.name = 'avatar'
             // this.section.querySelector("#addInputParent").insertBefore(input, this.addInputBtn)
             e.preventDefault()
         })
 
-        
+
     }
 }
 class EditImages extends Section {
@@ -175,16 +174,16 @@ class Company extends Section {
     }
 
     addListeners() {
-        this.editBtns.forEach(btn=>{
-            btn.addEventListener('click', ()=>{
-               let parentNode = btn.parentNode.parentNode; 
+        this.editBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                let parentNode = btn.parentNode.parentNode;
                 parentNode.querySelector('form').classList.add('shown')
-               
+
             })
         })
 
-        this.cancel.forEach(btn=>{
-            btn.addEventListener('click', (e)=>{
+        this.cancel.forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 let parentNode = btn.parentNode.parentNode;
                 parentNode.classList.remove('shown')
                 e.preventDefault()
