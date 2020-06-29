@@ -9,7 +9,6 @@ require('./lib/database');
 var methodOverride = require('method-override')
 
 
-console.log(__dirname);
 
 
 const app = express();
@@ -47,7 +46,7 @@ strategy(passport)
 
 app.use('/', require('./lib/routes/routes'));
 app.use('/auth', require('./lib/routes/auth'));
-app.use('/auth', require('./lib/routes/admin'))
+app.use('/admin', require('./lib/routes/admin'))
 // console.log(app);
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Express app listening on port ${process.env.SERVER_PORT}!`))
