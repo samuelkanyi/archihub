@@ -2,3 +2,4 @@ node_modules
 images
 components
 launch.json
+.env
