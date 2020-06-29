@@ -49,4 +49,4 @@ app.use('/auth', require('./lib/routes/auth'));
 app.use('/auth', require('./lib/routes/admin'))
 // console.log(app);
 
-app.listen(process.env.PORT, () => console.log(`Express app listening on port ${process.env.PORT}!`))
+app.listen(process.env.SERVER_PORT, () => console.log(`Express app listening on port ${process.env.SERVER_PORT}!`))
