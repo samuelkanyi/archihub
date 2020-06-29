@@ -11,7 +11,7 @@
     <section id="add-finish" class="active-section d-flex justify-content-around p-5">
 
         <div class="image"><img id="img-finish" src="" alt="" srcset=""></div>
-        <form method="post" action="/admin/images/finish" enctype="multipart/form-data" id="finish-form">
+        <form method="post" action="./admin/images/finish" enctype="multipart/form-data" id="finish-form">
             <label for="upload-image">Upload image</label>
             <input type="file" name="avatar" id="upload-image" required />
 
@@ -37,7 +37,7 @@
         </form>
     </section>
     <section id="add-project" class="d-flex justify-content-around p-5">
-        <form method="post" action="/admin/project" class="d-flex flex-column" enctype="multipart/form-data"
+        <form method="post" action="./admin/project" class="d-flex flex-column" enctype="multipart/form-data"
             id="project-form">
             <div class="d-flex flex-column" id="addInputParent">
                 <input type="file" name="avatar" id="upload-image" required />
@@ -102,7 +102,7 @@
                     </div>
                     <div class="modal-body d-flex justify-content-around p-5">
                         <img src="" alt="" id="modal-image" srcset="">
-                        <form action="/admin/images?_method=PUT" method="post">
+                        <form action="./admin/images?_method=PUT" method="post">
                             {{!-- <input type="hidden" name="_method" value="put"> --}}
                             <input type="hidden" id="modal-id" name="id">
                             <div>
@@ -146,7 +146,7 @@
         <div class="jumbotron">
             <h6 class="display-4 text-uppercase text-center">{{@key}}</h6>
             <p class="lead text-center font-weight-bolder">{{this}}</p>
-            <form action="/admin/company?_method=PUT" method="POST" class="form mb-4">
+            <form action="./admin/company?_method=PUT" method="POST" class="form mb-4">
                 <input type="hidden" id="company_key" name="id" value=1>
                 <div class="form-group">
                     <textarea name="{{@key}}" id="" cols="130" rows="5">{{this}}</textarea>
