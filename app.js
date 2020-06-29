@@ -1,12 +1,15 @@
 const express = require('express');
 const hbs = require('express-handlebars');
-const {PORT, SECRET, ROOTPATH} = require('./lib/config/config');
+require('dotenv').config();
 const path = require('path')
 const session = require('express-session')
 const passport = require('passport');
 const strategy = require('./lib/config/passport')
 require('./lib/database');
 var methodOverride = require('method-override')
+
+
+
 
 const app = express();
 
@@ -16,7 +19,7 @@ app.use(methodOverride('_method'))
 //set handlebars as the main view engine
 app.engine('handlebars', hbs({
     helpers:{
-        rootpath:ROOTPATH,
+        rootpath:process.env.ROOTPATH,
         escape: variable => variable.replace(/(['"])/g, '\\$1')
     }
 }));
@@ -34,16 +37,16 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(express.static(path.join(__dirname, "assets")));
 
 //set up passport authentication and enable use of sessions 
-app.use(session({secret: SECRET, resave:false, saveUninitialized:true}))
+app.use(session({secret: process.env.SECRET, resave:false, saveUninitialized:true}))
 app.use(passport.initialize())
 app.use(passport.session())
 
 
 strategy(passport)
 
-app.use(ROOTPATH, require('./lib/routes/routes'));
-app.use(`${ROOTPATH}auth`, require('./lib/routes/auth'));
-app.use(`${ROOTPATH}admin`, require('./lib/routes/admin'))
+app.use('/', require('./lib/routes/routes'));
+app.use('/auth', require('./lib/routes/auth'));
+app.use('/auth', require('./lib/routes/admin'))
 // console.log(app);
 
-app.listen(PORT, () => console.log(`Express app listening on port ${PORT}!`))
+app.listen(process.env.PORT, () => console.log(`Express app listening on port ${process.env.PORT}!`))
