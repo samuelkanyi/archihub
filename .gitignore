@@ -3,3 +3,6 @@ images
 components
 launch.json
 .env
+.scss
+.map
+package-lock.json
