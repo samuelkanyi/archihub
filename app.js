@@ -9,6 +9,7 @@ require('./lib/database');
 var methodOverride = require('method-override')
 
 
+console.log(__dirname);
 
 
 const app = express();
