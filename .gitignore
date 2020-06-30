@@ -2,3 +2,7 @@ node_modules
 images
 components
 launch.json
+.env
+main.scss
+main.css.map
+package-lock.json

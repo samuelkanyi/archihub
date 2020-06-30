@@ -129,7 +129,7 @@ class EditImages extends Section {
     setModalproperties(obj) {
         this.modalId.value = obj.id;
         this.modalCaption.innerText = obj.name;
-        this.modalImage.src = `../../images/${obj.name}`;
+        this.modalImage.src = `images/${obj.name}`;
 
         this.modalDelete.onclick = () => {
             swal({
