@@ -6,12 +6,21 @@ const session = require('express-session')
 const passport = require('passport');
 const strategy = require('./lib/config/passport')
 require('./lib/database');
-var methodOverride = require('method-override')
+const methodOverride = require('method-override')
+//get the url to correctly form url in css
+const url = require('url');
 
 
 
 
 const app = express();
+
+app.use('/', (req, res, next)=>{
+    console.log(req.host);
+    const parsedUrl = url.parse(req.host, true)
+    res.locals.absoluteUrl = parsedUrl.host
+    next(); 
+})
 
 //override html methods
 app.use(methodOverride('_method'))
