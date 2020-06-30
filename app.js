@@ -7,20 +7,10 @@ const passport = require('passport');
 const strategy = require('./lib/config/passport')
 require('./lib/database');
 const methodOverride = require('method-override')
-//get the url to correctly form url in css
-const url = require('url');
-const os = require('os')
-
-
-
-
-
 
 const app = express();
 
 app.use('*', (req, res, next)=>{
-    // console.log(req.host);
-    // const parsedUrl = url.parse(req.host, true)
     res.locals.absoluteUrl = process.env.URLROOT
     next(); 
 })
@@ -55,6 +45,15 @@ app.use(passport.session())
 
 
 strategy(passport)
+
+//serialize users
+passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
 
 app.use('/', require('./lib/routes/routes'));
 app.use('/auth', require('./lib/routes/auth'));
