@@ -1,10 +1,12 @@
-<h2 class="mt-5">ADMIN AREA</h2>
-<section id="control" class="container my-3 d-flex justify-content-around">
+<div class="d-flex my-5 pt-5 justify-content-center">
+    <h2 class="mb-0 pb-0 mr-5">ADMIN AREA</h2>
+    <button class="btn btn-sm btn-outline-danger align-self-end" id="logout">LOGOUT</button>
+</div>
+<section id="control" class="container my-3 d-flex justify-content-around clearfix">
     <button target="add-finish" class="btn btn-primary btn-lg">Add New Finish</button>
     <button target="add-project" class="btn btn-primary btn-lg">Add New Project</button>
     <button target="edit-img" class="btn btn-primary btn-lg">Edit Images</button>
     <button target="company" class="btn btn-primary btn-lg">Company Description</button>
-    <button target="users" class="btn btn-primary btn-lg">User Management</button>
 </section>
 
 <div class="container section-container ">
@@ -164,31 +166,25 @@
         {{/each}}
 
     </section>
-    <section id="users">
-        {{#each users}}
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        {{/each}}
-
-    </section>
-
 </div>
 
 
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 <script>
 
     const Admin = (() => {
 
         return {
             start: () => {
+                const logout = document.querySelector('#logout')
+                logout.addEventListener('click', (e) => {
+                    fetch('/admin/logout', {
+                        method: "POST"
+                    }).then(response => response.text())
+                        .then(data => {
+                            window.location.href = 'auth/login'
+                        })
+                })
                 //get all buttons
                 const controller = document.querySelector("#control");
                 const buttons = controller.querySelectorAll('button');
@@ -208,9 +204,6 @@
                             break;
                         case 'company':
                             new Company()
-                            break;
-                        case 'users':
-                            new Users()
                             break;
                         default:
                             console.error("Some error")

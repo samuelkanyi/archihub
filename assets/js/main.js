@@ -191,14 +191,3 @@ class Company extends Section {
         })
     }
 }
-
-
-class Users extends Section {
-    constructor() {
-        super("users")
-    }
-
-    loadElements() {}
-
-    addListeners() {}
-}

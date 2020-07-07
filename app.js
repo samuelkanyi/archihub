@@ -3,8 +3,6 @@ const hbs = require('express-handlebars');
 require('dotenv').config();
 const path = require('path')
 const session = require('express-session')
-const passport = require('passport');
-const strategy = require('./lib/config/passport')
 require('./lib/database');
 const methodOverride = require('method-override')
 
@@ -40,20 +38,6 @@ app.use(express.static(path.join(__dirname, "assets")));
 
 //set up passport authentication and enable use of sessions 
 app.use(session({secret: process.env.SECRET, resave:false, saveUninitialized:true}))
-app.use(passport.initialize())
-app.use(passport.session())
-
-
-strategy(passport)
-
-//serialize users
-passport.serializeUser(function(user, done) {
-    done(null, user);
-  });
-  
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
-  });
 
 app.use('/', require('./lib/routes/routes'));
 app.use('/auth', require('./lib/routes/auth'));
